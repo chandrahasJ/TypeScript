@@ -1,0 +1,70 @@
+1) const keyword 
+    a) Const keyword variable must be declared & initialized at same time         
+        const foo = 1; //Yes
+        const foo; //NO 
+        If any chance you declare it below error will occur
+        Syntax Error : 'const' declaration must be initialized.
+        TypeScript Error : Missing Initializer in const declaration.
+    b) const keyword cannot be re-assigned.
+        const foo = 1;
+        foo = 2; //NO
+        If any chance you declare it below error will occur
+        Syntax Error : "Connot assign to <variablename> because it is a constant or read-only property"
+        TypeSc Error : "Assignment to constant variable"
+    c) const keyword have block scope 
+        It means variable defined using const keyword inside a curely bracket {}
+        cannot be accessed by outside of curely braket.
+        function func(){
+            if(true){
+                const tmp = "PT";
+                console.log(tmp); // Line A
+            }
+            console.log(tmp); // Line B 
+        }
+        func();
+        Line A will be printed with no issues\
+        Line B will have compile time error as shown below
+        ReferenceError : tmp is not defined.
+2) let & var keyword are mutable. there value can be changed any time
+    let foo = 10;
+    foo = 20; //Yes 
+    var boo = 10;
+    boo = 30; //Yes
+3) const keyword are parital immutable. there value cann't be changed but property can be changed
+    const foo = 1;
+    foo = 10; // Error 
+    const foo = {}
+    foo['property'] = "ABC"; //No Error
+4) To achive perfectly immutable const keyword 
+    a) Object.freeze()
+        If we use below code we can achive perfectly immutable constant
+        const coo = Object.freeze({
+            "property1" : "Data1"
+        });
+        coo["property2"] = "Data2"; // This Line will be ignored by transpiler
+        console.log(coo.property1); //Prints Data1
+        console.log(coo.property2); //undefined
+    b) "use strict"
+        Using "use strict" in the typescript file with Object.freeze() assures that 
+        constant is perfectly immutable
+        If we only use Object.freeze() we will not get any error 
+        but we add "use strict" in the ts file 
+        Make sure we add "use strict" in the start of the ts/js file.
+        "use strict" 
+        const coo = Object.freeze({
+            "property1" : "Data1"
+        });
+        coo["property2"] = "Data2"; // This Line will be ignored by transpiler
+        console.log(coo.property1); //Prints Data1
+        console.log(coo.property2); //undefined
+        It will throw compile time error as shown below
+        TypeError: Cannot add property property, object is not extensible
+
+
+
+
+
+
+
+
+
