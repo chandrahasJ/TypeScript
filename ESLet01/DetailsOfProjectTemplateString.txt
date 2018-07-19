@@ -1,0 +1,61 @@
+/* Template String*/
+1) In ES 6, 
+    We have three stylee to declare strings 
+    a) double quotes 
+        let foo = "Data";
+    b) Single quotes 
+        let foo = 'Data';
+    c) Back Tick\Back Quote 
+        let foo = `Data`
+2) New Lines 
+    a) Double quotes
+        let foo = "A "  +
+                  "Ball";
+        console.log(foo);  //Prints A Ball
+        To Print Same Data in Multi - Line 
+        let foo = "A \n"  +
+                  "Ball";
+        console.log(foo);  
+        Prints As shown below
+        A
+        Ball
+    b) Single quotes
+        let foo = 'A ' +
+                  'Ball ';
+        console.log(foo); //Print A Ball
+        To Print Same Data in Mutli-Line
+        let foo =  'A \n' 
+                   'Ball ';
+        console.log(foo);
+        Print As Shown below
+        A
+        Ball
+    c) Back Tick\Back Quotes - Our Hero
+       let foo = 
+       `A
+       Ball`;
+       console.log(foo) ;
+       Print As shown below
+       A
+       Ball
+3) String interpolation - Using ${ <VariableName>} 
+    We can add data dynamically to string variable.
+    a) Double Quotes & Single Quotes
+        let myName = "CJ"
+        let foo = "My Name is ${myName}";
+        console.log(foo); 
+        //Prints My Name is ${myName}
+        let goo = 'My Name is ${ myName }';
+        console.log(goo)
+        //Prints My Name is ${myName}
+    b) Back Tick\Back Quotes
+        let coo = `My Name is ${myName}`;
+        console.log(coo);
+        //Prints My Name is CJ
+Conculsion
+Back Quote is very useful in creating structured html & string interpolation etc.
+
+Thank You
+
+
+
