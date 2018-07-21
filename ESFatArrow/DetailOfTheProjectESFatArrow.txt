@@ -1,0 +1,36 @@
+1) In Javascript, function can be passed as any other value even as argument to another functions
+    function FunctionWithOutArguments(){
+        console.log("I AM DATA")
+    }
+    // Below are examples of function expressions - FirstFunction,SecondFunction,ThridFunction
+    var FirstFunction = function(msg){
+        return "CJ "+msg;
+    }    
+    var SecondFunction = function(AnyFunctionCanBePassed){
+        return AnyFunctionCanBePassed("Data");
+    } 
+    var ThridFunction = function(AnyFunctionCanBePassed){
+        //console.log(AnyFunctionCanBePassed("Data")); //Line A
+        //Above Line was given syntax Error : 
+        //"Cannot invoke an expression whose type lacks a call signature. Type 'void' has no compatible call signatures".
+        //The function that it returns has a call signature, but you told Typescript to completely ignore that by adding "any"  Keyword    
+        //Line A is searching for same signature function Hence we must uncomment Line B to resolve the issue.
+    } 
+    //ThridFunction(FirstFunction); // Line B // Prints "CJ DATA"
+    //setTimeout(FunctionWithOutArguments,1000); // Print "I AM DATA"
+2)  setTimeout(expression, timeout) =  Executes the expression after given timeout period once 
+3)  setInterval(expression, timeout) = Executes the expression after given timeout period repeatedly till clearInterval is called.
+4)  Anonymous Function => In Javascript, We can declare and Execute as shown below
+    a) Immediately Invoked Function Expression
+        (function(){
+            console.log("I Am Inside Anonoymus Function")
+        }());
+    b) We use Anonymous function's are used in various ways 
+        setTimeout(function(){
+            //Logic
+            console.log("I AM Fucking A Anonymous Function inside setTimeout");
+        },1000);
+5)  In ES 6, We have Arrow Function () => {}
+    It stabilises the value of "this" in Javascript
+
+    
