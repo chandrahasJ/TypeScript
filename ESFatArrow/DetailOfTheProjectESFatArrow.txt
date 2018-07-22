@@ -29,8 +29,30 @@
         setTimeout(function(){
             //Logic
             console.log("I AM Fucking A Anonymous Function inside setTimeout");
-        },1000);
+        },1000);   
+    c) Paramterized Anonyomus Function
+        var paraAnonymousFunction = function(a,b) {
+            return a + b;
+        }
+        console.log(paraAnonymousFunction(1,2));
 5)  In ES 6, We have Arrow Function () => {}
-    It stabilises the value of "this" in Javascript
+    a)  Use of arrow function as below
+        setTimeout(() => {
+            //console.log("I AM inside Arrow functions");
+        }, 1000);
+    b) Paramterized Arrow Functions
+        var paraArrowFunction = (a,b) => {
+            return a + b;
+        } 
+        console.log(paraArrowFunction(a,b));
+    c) Paramterized Arrow function -> (Single Line)
+        var paraArrowFunction2 = (a, b) => a + b;
+        console.log(paraArrowFunction2(10,230)) ;
+        "IILEAGAL WAY"
+        var paraArrowFunction3 = (a , b) => return a + b; Sytnax Error 
+6)  Calling Context 
+    
+7)  Instablitity of "this" keyword 
+
 
     
