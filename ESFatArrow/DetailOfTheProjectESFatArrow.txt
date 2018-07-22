@@ -51,8 +51,71 @@
         "IILEAGAL WAY"
         var paraArrowFunction3 = (a , b) => return a + b; Sytnax Error 
 6)  Calling Context 
-    
-7)  Instablitity of "this" keyword 
+    a)  <Object>.<FunctionName>();
+        <Object> = Calling Context & <FunctionName> = Called Function.
+        let myObj = {
+            name : "CJ",
+            sayLater : function(){
+                console.log(this.name);
+            }
+        }
+        myObj.sayLater();
+        //Above will print CJ,         
+        Calling Context is "myObj" thus "this" keyword is pointing to object "myObj" i.e. this === <Object> 
+    b) Behaviour of this under setTimeout
+        let mySettimeOutObj = {
+            name : 'CJ',
+            sayLater : function(){
+                console.log("inside sayLater :> "+this.name); //Line A
+                setTimeout(function(){
+                    console.log("Printed After 1 Sec :> "+this.name); //Line B
+                },1000);
+            }
+        }
+        mySettimeOutObj.sayLater();
 
-
+        Above will print below lines
+        inside sayLater :> CJ   // //Calling Context = "mySettimeOutObj"
+        Printed After 1 Sec :> undefined // //Calling Context = "Unknown" 
+        i) In Line A, calling context is "mySettimeOutObj" thus it was able to print name property
+        ii) In Line B, setTimeout will invoke the anonymous function itself and its calling context can be 
+            anything other than "mySettimeOutObj"
+        iii) As it will be invoked after execution of "mySettimeOutObj" has been finished.
+        Vi) It will be taken over by setTimeout(expression,timeout)        
+    c) Solution of Instablitity of "this" in ES 5 - Assign "this" to new variable.
+        let myNVObj = {
+            name : "CJ",
+            sayLater : function(){
+                var self = this; // Line A 
+                console.log(self.name); //Line B
+                setTimeout(function(){
+                    console.log(self.name); // Line C
+                },1000);
+            }
+        }
+        myNVObj.sayLater();
+        In Line A : we are assigning the object "this" to new variable "self"
+        In Line B : Calling context is doesn't matter as we are not trying to print using "this" 
+                    We are using "self" So no issue while printing property "name"
+        In Line C : We are using "self" to get the property of object "myNVObj"
+                    using "self", Calling Context persits as self is attached to "myNVObj"
+                    but "this" is not attached to "myNVObj"
+                    i.e. this != myNVObj it was invoked by setTimeout 
+                    so the calling context of this at this period will unknown/depends.
+7) In ES 6,  Arrow function & "this" 
+    a) Arrow function Captures/(gets the value) of "this" from surrounding context
+        let myAFObj = {
+            name : "CJ",
+            sayLater : function(){
+                console.log(this.name); //Line A
+                setTimeout(() => {
+                   console.log(this.name);  //Line B
+                },1000);
+            }
+        }
+        myAFObj.sayLater();
+        In Line A, Calling Context is "myAFObj" thus "this" is pointing to "myAFObj"
+        In Line B, As Arrow function captures "this" from surrounding Context 
+                   Hence "this" is pointing to "myAFObj"
+    b) Arrow Function solves the problem of Instablities of "this".     
     
