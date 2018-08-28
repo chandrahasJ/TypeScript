@@ -1,0 +1,31 @@
+Package required to be installed on the VSCode for Productivity
+a) CCD Typescript snippets
+b) Beautify
+c) TSLint
+d) HTML Snippets
+e) VSCode Angular TypeScript & Html Snippets
+f) Bootstrap 4 & Font awesome snippets for Visual studio code
+g) NgBootstrap Snippets
+
+Installtion Process
+1) Install Node.js  - One Time Acvtitiy
+2) Install Typescript - One Time Acvtitiy
+    npm -g install Typescript
+3) Ctrl + ` -> Open Terminal 
+4) npm init <PackageName> 
+    a) Provide the details for the Project
+5) install lite-server using below line
+    npm install lite-server --save-dev
+    Note : Make sure you add "--save-dev" as it should be installed for this 
+           Particular Project only.
+6) Add Below Line in Package.Json inside Script Property
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start" : "lite-server"
+    },
+7) Add ts.config file for hassel free complitation 
+    tsc --init
+8) Use tsc -watch in the new Terminal
+9) Use npm start in the new Terminal 
+10) Start Learning & Developing...
+

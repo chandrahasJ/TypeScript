@@ -1,0 +1,21 @@
+{
+  "name": "setupingproject",
+  "version": "1.0.0",
+  "description": "Work Space Details",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "lite-server"
+  },
+  "keywords": [
+    "Setting",
+    "Up",
+    "Typescript",
+    "Playground"
+  ],
+  "author": "CJ",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
